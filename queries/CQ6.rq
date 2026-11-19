@@ -1,0 +1,11 @@
+PREFIX hpa: <https://w3id.org/hydrogen-planning/ontology#>
+PREFIX cco: <https://www.commoncoreontologies.org/>
+
+SELECT DISTINCT ?deliveryPoint ?agreement ?signed
+WHERE {
+  ?decision a hpa:HPA_0000008 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ; hpa:HPA_0000037 ?decisionDate .
+  ?signing a hpa:HPA_0000005 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ;
+    hpa:HPA_0000037 ?signed ; hpa:HPA_0000038 ?agreement .
+  FILTER (?signed <= ?decisionDate)
+  ?agreement hpa:HPA_0000048/cco:ont00001916 ?deliveryPoint .
+}

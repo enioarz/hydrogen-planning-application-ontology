@@ -1,0 +1,3 @@
+.venv/
+.ontology-cache/
+__pycache__/

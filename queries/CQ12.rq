@@ -1,0 +1,11 @@
+PREFIX hpa: <https://w3id.org/hydrogen-planning/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?record ?citationEvidence ?citedOn
+WHERE {
+  ?decision a hpa:HPA_0000008 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ; hpa:HPA_0000037 ?decisionDate .
+  ?citation a hpa:HPA_0000009 ; hpa:HPA_0000040 ?decision ; hpa:HPA_0000036 ?developer ;
+    hpa:HPA_0000037 ?citedOn ; hpa:HPA_0000041 ?record ; hpa:HPA_0000042 ?citationEvidence .
+  ?record a/rdfs:subClassOf* hpa:HPA_0000017 .
+  FILTER (?citedOn <= ?decisionDate)
+}

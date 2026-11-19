@@ -1,0 +1,11 @@
+PREFIX hpa: <https://w3id.org/hydrogen-planning/ontology#>
+
+SELECT DISTINCT ?pipeline ?operatingRecord
+WHERE {
+  ?decision a hpa:HPA_0000008 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ; hpa:HPA_0000037 ?decisionDate .
+  ?project hpa:HPA_0000043 ?district .
+  ?pipeline a hpa:HPA_0000012 ; hpa:HPA_0000044 ?district .
+  ?operatingRecord a hpa:HPA_0000024 ; hpa:HPA_0000050 ?pipeline ;
+    hpa:HPA_0000053 ?start ; hpa:HPA_0000054 ?end .
+  FILTER (?start <= ?decisionDate && ?decisionDate < ?end)
+}

@@ -1,0 +1,11 @@
+PREFIX hpa: <https://w3id.org/hydrogen-planning/ontology#>
+PREFIX cco: <https://www.commoncoreontologies.org/>
+
+SELECT DISTINCT ?site ?megawatts ?decisionRecord ?developer ?decisionDate
+WHERE {
+  ?decision a hpa:HPA_0000008 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ; hpa:HPA_0000037 ?decisionDate .
+  ?decision hpa:HPA_0000038 ?decisionRecord .
+  ?decisionRecord hpa:HPA_0000045 ?selection .
+  ?selection a hpa:HPA_0000032 ; hpa:HPA_0000046/cco:ont00001916 ?site ;
+    hpa:HPA_0000058 ?megawatts .
+}

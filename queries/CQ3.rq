@@ -1,0 +1,12 @@
+PREFIX hpa: <https://w3id.org/hydrogen-planning/ontology#>
+PREFIX cco: <https://www.commoncoreontologies.org/>
+
+SELECT DISTINCT ?site ?connectionPoint ?offer ?operator ?issued
+WHERE {
+  ?decision a hpa:HPA_0000008 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ; hpa:HPA_0000037 ?decisionDate .
+  ?issue a hpa:HPA_0000004 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?operator ;
+    hpa:HPA_0000037 ?issued ; hpa:HPA_0000038 ?offer .
+  ?offer hpa:HPA_0000046/cco:ont00001916 ?site ;
+    hpa:HPA_0000047/cco:ont00001916 ?connectionPoint .
+  FILTER (?issued <= ?decisionDate)
+}

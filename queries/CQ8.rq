@@ -1,0 +1,11 @@
+PREFIX hpa: <https://w3id.org/hydrogen-planning/ontology#>
+
+SELECT DISTINCT ?rule ?offer ?supplier ?issued
+WHERE {
+  ?decision a hpa:HPA_0000008 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ; hpa:HPA_0000037 ?decisionDate .
+  ?issue a hpa:HPA_0000006 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?supplier ;
+    hpa:HPA_0000037 ?issued ; hpa:HPA_0000038 ?offer .
+  ?offer hpa:HPA_0000045 ?term .
+  ?term a hpa:HPA_0000034 ; hpa:HPA_0000060 ?rule .
+  FILTER (?issued <= ?decisionDate)
+}

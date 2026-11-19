@@ -1,0 +1,12 @@
+PREFIX hpa: <https://w3id.org/hydrogen-planning/ontology#>
+PREFIX cco: <https://www.commoncoreontologies.org/>
+
+SELECT DISTINCT ?site ?application ?submitted
+WHERE {
+  ?decision a hpa:HPA_0000008 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ; hpa:HPA_0000037 ?decisionDate .
+  ?submission a hpa:HPA_0000003 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ;
+    hpa:HPA_0000037 ?submitted ; hpa:HPA_0000038 ?application .
+  ?application hpa:HPA_0000045 ?request .
+  ?request a hpa:HPA_0000030 ; hpa:HPA_0000046/cco:ont00001916 ?site .
+  FILTER (?submitted <= ?decisionDate)
+}

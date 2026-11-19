@@ -1,0 +1,10 @@
+PREFIX hpa: <https://w3id.org/hydrogen-planning/ontology#>
+
+SELECT DISTINCT ?version ?district ?received ?receiptEvidence
+WHERE {
+  ?decision a hpa:HPA_0000008 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ; hpa:HPA_0000037 ?decisionDate .
+  ?receipt a hpa:HPA_0000007 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ;
+    hpa:HPA_0000037 ?received ; hpa:HPA_0000039 ?version ; hpa:HPA_0000042 ?receiptEvidence .
+  FILTER (?received < ?decisionDate)
+  ?version hpa:HPA_0000049 ?district .
+}

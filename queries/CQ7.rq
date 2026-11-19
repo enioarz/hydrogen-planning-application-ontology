@@ -1,0 +1,12 @@
+PREFIX hpa: <https://w3id.org/hydrogen-planning/ontology#>
+
+SELECT DISTINCT ?start ?end ?kilograms ?agreement ?signed
+WHERE {
+  ?decision a hpa:HPA_0000008 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ; hpa:HPA_0000037 ?decisionDate .
+  ?signing a hpa:HPA_0000005 ; hpa:HPA_0000035 ?project ; hpa:HPA_0000036 ?developer ;
+    hpa:HPA_0000037 ?signed ; hpa:HPA_0000038 ?agreement .
+  FILTER (?signed <= ?decisionDate)
+  ?agreement hpa:HPA_0000045 ?term .
+  ?term a hpa:HPA_0000033 ; hpa:HPA_0000055 ?start ; hpa:HPA_0000056 ?end ;
+    hpa:HPA_0000059 ?kilograms .
+}

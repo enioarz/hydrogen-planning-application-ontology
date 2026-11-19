@@ -1,0 +1,25 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+SELECT DISTINCT ?entity
+WHERE {
+  ?entity a ?type .
+  FILTER (isIRI(?entity))
+  BIND (STR(?entity) AS ?iri)
+  BIND ("https://w3id.org/hydrogen-planning/ontology#" AS ?schema)
+  BIND ("https://w3id.org/hydrogen-planning/example/" AS ?example)
+  BIND ("https://openenergyplatform.org/ontology/oeo/OEO_" AS ?oeo)
+  FILTER (STRSTARTS(?iri, ?schema) || STRSTARTS(?iri, ?example) || STRSTARTS(?iri, ?oeo))
+  FILTER (
+    (STRSTARTS(?iri, ?schema) && !REGEX(STRAFTER(?iri, ?schema), "^HPA_[0-9]{7}$")) ||
+    (STRSTARTS(?iri, ?example) && !REGEX(STRAFTER(?iri, ?example), "^EX_[0-9]{7}$")) ||
+    NOT EXISTS {
+      ?entity rdfs:label ?label .
+      FILTER (isLiteral(?label) && REGEX(STR(?label), "\\S"))
+    } ||
+    NOT EXISTS {
+      ?entity obo:IAO_0000115 ?definition .
+      FILTER (isLiteral(?definition) && REGEX(STR(?definition), "\\S"))
+    }
+  )
+}
