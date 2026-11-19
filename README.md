@@ -72,3 +72,9 @@ HermiT reported inconsistency for the full OEO v2.14.0 release combined with the
 ## Open domain decisions
 
 Determine which evidence qualifies for a receipt, citation, or interval of operation in the research data, and how to handle same-day events with unknown order or intervals with unknown bounds. Decide whether project-area membership should be asserted from records or derived geometrically for pipelines crossing district boundaries. For richer offers, decide how limits attach to individual site and point pairs, how revisions supersede earlier offers, and whether the study requires computable tariffs.
+
+## License
+
+Original project material is available under the [BSD 3-Clause License](LICENSE).
+
+The [OEO alignment file](oeo-planning-alignment.ttl) contains axioms and definitions from Open Energy Ontology v2.14.0, reused under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). BFO and CCO are imported from their upstream releases under their respective terms.
