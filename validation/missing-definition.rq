@@ -1,0 +1,17 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+SELECT DISTINCT ?entity
+WHERE {
+  ?entity a ?type .
+  FILTER (isIRI(?entity))
+  BIND (STR(?entity) AS ?iri)
+  FILTER (
+    STRSTARTS(?iri, "https://w3id.org/hydrogen-planning/ontology#") ||
+    STRSTARTS(?iri, "https://w3id.org/hydrogen-planning/example/") ||
+    STRSTARTS(?iri, "https://openenergyplatform.org/ontology/oeo/OEO_")
+  )
+  FILTER NOT EXISTS {
+    ?entity obo:IAO_0000115 ?definition .
+    FILTER (isLiteral(?definition) && REGEX(STR(?definition), "\\S"))
+  }
+}

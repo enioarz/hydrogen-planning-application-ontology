@@ -1,0 +1,15 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?entity ?label
+WHERE {
+  ?entity a owl:Class .
+  FILTER (isIRI(?entity) && STRSTARTS(STR(?entity), "https://w3id.org/hydrogen-planning/ontology#"))
+  OPTIONAL { ?entity rdfs:label ?label . }
+  FILTER NOT EXISTS {
+    # Continuant or occurrent. A link to owl:Thing or BFO entity alone is too general.
+    ?entity rdfs:subClassOf+ ?anchor .
+    VALUES ?anchor { obo:BFO_0000002 obo:BFO_0000003 }
+  }
+}

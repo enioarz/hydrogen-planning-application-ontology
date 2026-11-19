@@ -1,0 +1,17 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?entity
+WHERE {
+  ?entity a ?type .
+  FILTER (isIRI(?entity))
+  BIND (STR(?entity) AS ?iri)
+  FILTER (
+    STRSTARTS(?iri, "https://w3id.org/hydrogen-planning/ontology#") ||
+    STRSTARTS(?iri, "https://w3id.org/hydrogen-planning/example/") ||
+    STRSTARTS(?iri, "https://openenergyplatform.org/ontology/oeo/OEO_")
+  )
+  FILTER NOT EXISTS {
+    ?entity rdfs:label ?label .
+    FILTER (LANGMATCHES(LANG(?label), "en") && REGEX(STR(?label), "\\S"))
+  }
+}

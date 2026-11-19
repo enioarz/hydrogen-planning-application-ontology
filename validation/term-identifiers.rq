@@ -1,0 +1,12 @@
+SELECT DISTINCT ?entity
+WHERE {
+  ?entity a ?type .
+  FILTER (isIRI(?entity))
+  BIND (STR(?entity) AS ?iri)
+  FILTER (
+    (STRSTARTS(?iri, "https://w3id.org/hydrogen-planning/ontology#") &&
+     !REGEX(?iri, "#HPA_[0-9]{7}$")) ||
+    (STRSTARTS(?iri, "https://w3id.org/hydrogen-planning/example/") &&
+     !REGEX(?iri, "/EX_[0-9]{7}$"))
+  )
+}

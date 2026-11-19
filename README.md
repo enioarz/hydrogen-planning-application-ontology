@@ -46,7 +46,16 @@ Load [ontology.ttl](ontology.ttl) and [examples/planning-decision.ttl](examples/
 
 ## Term identifiers
 
-Application classes and properties use stable IDs in the form `HPA_0000001`. Fictional example individuals use `EX_0000001` IDs. Use `rdfs:label` for the human-readable name and `IAO_0000115` for the textual definition. Allocate a new number for each new entity and keep the ID when a label changes. Version 0.2.0 replaces the draft’s descriptive IDs, including in the example and competency queries. ROBOT verifies the ID format and checks for missing labels or definitions.
+Application classes and properties use stable IDs in the form `HPA_0000001`. Fictional example individuals use `EX_0000001` IDs. Use `rdfs:label` for the human-readable name and `IAO_0000115` for the textual definition. Allocate a new number for each new entity and keep the ID when a label changes. Version 0.2.0 replaces the draft’s descriptive IDs, including in the example and competency queries.
+
+## Ontology hygiene
+
+Run the checks on the merged imports with `.venv/bin/python validate.py --hygiene-only --robot-jar .ontology-cache/robot.jar`. The full demonstration also runs them. Each SPARQL query returns violations, so an empty result passes.
+
+- [English labels](validation/missing-english-label.rq) require a nonblank English-tagged label. Other languages are allowed alongside it.
+- [Definitions](validation/missing-definition.rq) require a nonblank `IAO_0000115` literal. The label and definition checks cover application terms, example individuals, and the selected OEO terms.
+- [Orphan classes](validation/orphan-classes.rq) require every application class to have an asserted `rdfs:subClassOf` path to BFO continuant or occurrent, including paths through CCO. An attachment only to `owl:Thing` or BFO entity fails.
+- [Opaque IDs](validation/term-identifiers.rq) check the format of application and example identifiers.
 
 ## Versioned sources and reused IRIs
 

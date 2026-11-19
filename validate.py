@@ -87,7 +87,7 @@ def write_catalog(path, documents):
     ElementTree.ElementTree(catalog).write(path, encoding="utf-8", xml_declaration=True)
 
 
-def validate_owl(graph, robot):
+def validate_owl(graph, robot, *, hygiene_only):
     alignment_path = ROOT / "oeo-planning-alignment.ttl"
     alignment = Graph().parse(alignment_path)
     release, _ = load_release("oeo")
@@ -122,12 +122,15 @@ def validate_owl(graph, robot):
              "--output", str(closure)],
             check=True,
         )
+        rules = sorted((ROOT / "validation").glob("*.rq"))
         subprocess.run(
             [*robot, "verify", "--input", str(closure), "--output-dir", str(staging),
-             "--queries", str(ROOT / "validation/term-metadata.rq")],
+             "--queries", *map(str, rules)],
             check=True,
         )
-        print("ROBOT: term identifiers, labels, and definitions passed.", flush=True)
+        print("ROBOT: ontology hygiene checks passed.", flush=True)
+        if hygiene_only:
+            return
         subprocess.run(
             [*robot, "reason", "--reasoner", "HermiT", "--input", str(closure)], check=True
         )
@@ -150,11 +153,14 @@ def validate_owl(graph, robot):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--queries-only", action="store_true", help="Skip release downloads and OWL checks.")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--hygiene-only", action="store_true", help="Run only the ROBOT hygiene checks.")
+    mode.add_argument("--queries-only", action="store_true", help="Skip release downloads and OWL checks.")
     parser.add_argument("--robot-jar", type=Path, help="Use this ROBOT JAR instead of robot on PATH.")
     args = parser.parse_args()
     graph = Graph().parse(ROOT / "ontology.ttl").parse(ROOT / "examples/planning-decision.ttl")
-    validate_queries(graph)
+    if not args.hygiene_only:
+        validate_queries(graph)
     if not args.queries_only:
         if args.robot_jar:
             robot = ["java", "-jar", str(args.robot_jar)]
@@ -163,7 +169,7 @@ def main():
             if executable is None:
                 parser.error("ROBOT is required for OWL checks. Put robot on PATH or pass --robot-jar.")
             robot = [executable]
-        validate_owl(graph, robot)
+        validate_owl(graph, robot, hygiene_only=args.hygiene_only)
 
 
 if __name__ == "__main__":
