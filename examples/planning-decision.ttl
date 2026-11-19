@@ -1,5 +1,5 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ex: <https://w3id.org/hydrogen-planning/example/> .
 @prefix hpa: <https://w3id.org/hydrogen-planning/ontology#> .
 @prefix cco: <https://www.commoncoreontologies.org/> .
@@ -9,228 +9,228 @@
 
 <https://w3id.org/hydrogen-planning/example> a owl:Ontology ;
     rdfs:label "Fictional hydrogen planning example"@en ;
-    obo:IAO_0000115 "An example ontology recording the evidence and siting decision for a fictional hydrogen project."@en ;
+    skos:definition "An example ontology recording the evidence and siting decision for a fictional hydrogen project."@en ;
     owl:imports <https://w3id.org/hydrogen-planning/ontology> .
 
 ex:EX_0000001 a hpa:HPA_0000001 ;
     rdfs:label "Hydrogen project"@en ;
-    obo:IAO_0000115 "The fictional project that compares Sites A and B for an electrolyser investment."@en ;
+    skos:definition "The fictional project that compares Sites A and B for an electrolyser investment."@en ;
     hpa:HPA_0000043 ex:EX_0000006 .
 
 ex:EX_0000002 a cco:ont00001180 ;
     rdfs:label "Developer"@en ;
-    obo:IAO_0000115 "The organization that submits the application and makes the siting decision for the fictional project."@en .
+    skos:definition "The organization that submits the application and makes the siting decision for the fictional project."@en .
 
 ex:EX_0000003 a cco:ont00001180 ;
     rdfs:label "Grid operator"@en ;
-    obo:IAO_0000115 "The organization that issues the connection offer for Site A."@en .
+    skos:definition "The organization that issues the connection offer for Site A."@en .
 
 ex:EX_0000004 a cco:ont00001180 ;
     rdfs:label "Hydrogen offtaker"@en ;
-    obo:IAO_0000115 "The organization that signs the agreement to purchase hydrogen from the project."@en .
+    skos:definition "The organization that signs the agreement to purchase hydrogen from the project."@en .
 
 ex:EX_0000005 a cco:ont00001180 ;
     rdfs:label "Electricity supplier"@en ;
-    obo:IAO_0000115 "The organization that offers to sell electricity to the project."@en .
+    skos:definition "The organization that offers to sell electricity to the project."@en .
 
 ex:EX_0000006 a hpa:HPA_0000011 ;
     rdfs:label "District D"@en ;
-    obo:IAO_0000115 "The geographic district covered by the project and its infrastructure datasets."@en .
+    skos:definition "The geographic district covered by the project and its infrastructure datasets."@en .
 
 ex:EX_0000007 a hpa:HPA_0000010 ;
     rdfs:label "Site A"@en ;
-    obo:IAO_0000115 "The candidate location requested at 40 MW and selected at 30 MW."@en .
+    skos:definition "The candidate location requested at 40 MW and selected at 30 MW."@en .
 
 ex:EX_0000008 a hpa:HPA_0000010 ;
     rdfs:label "Site B"@en ;
-    obo:IAO_0000115 "The candidate location requested at 30 MW in the project application."@en .
+    skos:definition "The candidate location requested at 30 MW in the project application."@en .
 
 ex:EX_0000009 a hpa:HPA_0000013, oeo:OEO_00000296 ;
     rdfs:label "Connection point A1"@en ;
-    obo:IAO_0000115 "The grid node named in the connection offer for Site A."@en .
+    skos:definition "The grid node named in the connection offer for Site A."@en .
 
 ex:EX_0000010 a hpa:HPA_0000015 ;
     rdfs:label "Delivery point D1"@en ;
-    obo:IAO_0000115 "The physical handover point named in the offtake agreement."@en .
+    skos:definition "The physical handover point named in the offtake agreement."@en .
 
 ex:EX_0000011 a hpa:HPA_0000027 ;
     rdfs:label "Site A identifier"@en ;
-    obo:IAO_0000115 "The designation of Site A used in the planning records."@en ;
+    skos:definition "The designation of Site A used in the planning records."@en ;
     cco:ont00001916 ex:EX_0000007 .
 
 ex:EX_0000012 a hpa:HPA_0000027 ;
     rdfs:label "Site B identifier"@en ;
-    obo:IAO_0000115 "The designation of Site B used in the project application."@en ;
+    skos:definition "The designation of Site B used in the project application."@en ;
     cco:ont00001916 ex:EX_0000008 .
 
 ex:EX_0000013 a hpa:HPA_0000028 ;
     rdfs:label "A1 identifier"@en ;
-    obo:IAO_0000115 "The designation of grid connection point A1 used in the connection offer."@en ;
+    skos:definition "The designation of grid connection point A1 used in the connection offer."@en ;
     cco:ont00001916 ex:EX_0000009 .
 
 ex:EX_0000014 a hpa:HPA_0000029 ;
     rdfs:label "D1 identifier"@en ;
-    obo:IAO_0000115 "The designation of delivery point D1 used in the offtake agreement."@en ;
+    skos:definition "The designation of delivery point D1 used in the offtake agreement."@en ;
     cco:ont00001916 ex:EX_0000010 .
 
 ex:EX_0000015 a hpa:HPA_0000003 ;
     rdfs:label "Application submission on 3 March"@en ;
-    obo:IAO_0000115 "The event in which the developer submits capacity requests for Sites A and B on 3 March 2025."@en ;
+    skos:definition "The event in which the developer submits capacity requests for Sites A and B on 3 March 2025."@en ;
     hpa:HPA_0000035 ex:EX_0000001 ; hpa:HPA_0000036 ex:EX_0000002 ;
     hpa:HPA_0000037 "2025-03-03T00:00:00Z"^^xsd:dateTime ;
     hpa:HPA_0000038 ex:EX_0000016 .
 
 ex:EX_0000016 a hpa:HPA_0000018 ;
     rdfs:label "Project application"@en ;
-    obo:IAO_0000115 "The submission record containing the requested capacities for Sites A and B."@en ;
+    skos:definition "The submission record containing the requested capacities for Sites A and B."@en ;
     hpa:HPA_0000045 ex:EX_0000017, ex:EX_0000018 .
 
 ex:EX_0000017 a hpa:HPA_0000030 ;
     rdfs:label "Site A request"@en ;
-    obo:IAO_0000115 "The application term requesting 40 MW of electrical input capacity at Site A."@en ;
+    skos:definition "The application term requesting 40 MW of electrical input capacity at Site A."@en ;
     hpa:HPA_0000046 ex:EX_0000011 ; hpa:HPA_0000058 40.0 .
 
 ex:EX_0000018 a hpa:HPA_0000030 ;
     rdfs:label "Site B request"@en ;
-    obo:IAO_0000115 "The application term requesting 30 MW of electrical input capacity at Site B."@en ;
+    skos:definition "The application term requesting 30 MW of electrical input capacity at Site B."@en ;
     hpa:HPA_0000046 ex:EX_0000012 ; hpa:HPA_0000058 30.0 .
 
 ex:EX_0000019 a hpa:HPA_0000004 ;
     rdfs:label "Connection offer issue on 12 March"@en ;
-    obo:IAO_0000115 "The event in which the grid operator issues the offer for Site A on 12 March 2025."@en ;
+    skos:definition "The event in which the grid operator issues the offer for Site A on 12 March 2025."@en ;
     hpa:HPA_0000035 ex:EX_0000001 ; hpa:HPA_0000036 ex:EX_0000003 ;
     hpa:HPA_0000037 "2025-03-12T00:00:00Z"^^xsd:dateTime ;
     hpa:HPA_0000038 ex:EX_0000020 .
 
 ex:EX_0000020 a hpa:HPA_0000019 ;
     rdfs:label "Connection offer for A1"@en ;
-    obo:IAO_0000115 "The grid operator’s offer permitting withdrawal of up to 30 MW at A1 for Site A."@en ;
+    skos:definition "The grid operator’s offer permitting withdrawal of up to 30 MW at A1 for Site A."@en ;
     hpa:HPA_0000046 ex:EX_0000011 ; hpa:HPA_0000047 ex:EX_0000013 ;
     hpa:HPA_0000045 ex:EX_0000021 .
 
 ex:EX_0000021 a hpa:HPA_0000031 ;
     rdfs:label "A1 withdrawal limit"@en ;
-    obo:IAO_0000115 "The connection offer term limiting electricity withdrawal to 30 MW."@en ;
+    skos:definition "The connection offer term limiting electricity withdrawal to 30 MW."@en ;
     hpa:HPA_0000058 30.0 .
 
 ex:EX_0000022 a hpa:HPA_0000007 ;
     rdfs:label "Dataset v1 receipt"@en ;
-    obo:IAO_0000115 "The developer’s receipt of infrastructure dataset v1 on 15 March 2025."@en ;
+    skos:definition "The developer’s receipt of infrastructure dataset v1 on 15 March 2025."@en ;
     hpa:HPA_0000035 ex:EX_0000001 ; hpa:HPA_0000036 ex:EX_0000002 ;
     hpa:HPA_0000037 "2025-03-15T00:00:00Z"^^xsd:dateTime ;
     hpa:HPA_0000039 ex:EX_0000026 ; hpa:HPA_0000042 ex:EX_0000024 .
 
 ex:EX_0000023 a hpa:HPA_0000007 ;
     rdfs:label "Dataset v2 receipt"@en ;
-    obo:IAO_0000115 "The developer’s receipt of infrastructure dataset v2 on 25 March 2025."@en ;
+    skos:definition "The developer’s receipt of infrastructure dataset v2 on 25 March 2025."@en ;
     hpa:HPA_0000035 ex:EX_0000001 ; hpa:HPA_0000036 ex:EX_0000002 ;
     hpa:HPA_0000037 "2025-03-25T00:00:00Z"^^xsd:dateTime ;
     hpa:HPA_0000039 ex:EX_0000027 ; hpa:HPA_0000042 ex:EX_0000025 .
 
 ex:EX_0000024 a hpa:HPA_0000016 ;
     rdfs:label "Dataset v1 receipt log"@en ;
-    obo:IAO_0000115 "The record documenting the developer’s receipt of infrastructure dataset v1."@en .
+    skos:definition "The record documenting the developer’s receipt of infrastructure dataset v1."@en .
 
 ex:EX_0000025 a hpa:HPA_0000016 ;
     rdfs:label "Dataset v2 receipt log"@en ;
-    obo:IAO_0000115 "The record documenting the developer’s receipt of infrastructure dataset v2."@en .
+    skos:definition "The record documenting the developer’s receipt of infrastructure dataset v2."@en .
 
 ex:EX_0000026 a hpa:HPA_0000023 ;
     rdfs:label "Infrastructure dataset v1"@en ;
-    obo:IAO_0000115 "The first release reporting grid connection capacity for District D."@en ;
+    skos:definition "The first release reporting grid connection capacity for District D."@en ;
     hpa:HPA_0000049 ex:EX_0000006 .
 
 ex:EX_0000027 a hpa:HPA_0000023 ;
     rdfs:label "Infrastructure dataset v2"@en ;
-    obo:IAO_0000115 "The second release reporting grid connection capacity for District D."@en ;
+    skos:definition "The second release reporting grid connection capacity for District D."@en ;
     hpa:HPA_0000049 ex:EX_0000006 .
 
 ex:EX_0000028 a hpa:HPA_0000008 ;
     rdfs:label "Siting decision on 20 March"@en ;
-    obo:IAO_0000115 "The event in which the developer selects Site A at 30 MW on 20 March 2025."@en ;
+    skos:definition "The event in which the developer selects Site A at 30 MW on 20 March 2025."@en ;
     hpa:HPA_0000035 ex:EX_0000001 ; hpa:HPA_0000036 ex:EX_0000002 ;
     hpa:HPA_0000037 "2025-03-20T00:00:00Z"^^xsd:dateTime ;
     hpa:HPA_0000038 ex:EX_0000029 .
 
 ex:EX_0000029 a hpa:HPA_0000022 ;
     rdfs:label "Recorded siting decision"@en ;
-    obo:IAO_0000115 "The record that states the selection of Site A at 30 MW and supports the attribution of the offer citation."@en ;
+    skos:definition "The record that states the selection of Site A at 30 MW and supports the attribution of the offer citation."@en ;
     hpa:HPA_0000045 ex:EX_0000030 .
 
 ex:EX_0000030 a hpa:HPA_0000032 ;
     rdfs:label "Selected Site A input"@en ;
-    obo:IAO_0000115 "The decision term specifying Site A and 30 MW of electrical input capacity."@en ;
+    skos:definition "The decision term specifying Site A and 30 MW of electrical input capacity."@en ;
     hpa:HPA_0000046 ex:EX_0000011 ; hpa:HPA_0000058 30.0 .
 
 ex:EX_0000031 a hpa:HPA_0000009 ;
     rdfs:label "Connection offer citation"@en ;
-    obo:IAO_0000115 "The event in which the developer cites the A1 connection offer as grounds for the siting decision."@en ;
+    skos:definition "The event in which the developer cites the A1 connection offer as grounds for the siting decision."@en ;
     hpa:HPA_0000036 ex:EX_0000002 ; hpa:HPA_0000040 ex:EX_0000028 ;
     hpa:HPA_0000037 "2025-03-20T00:00:00Z"^^xsd:dateTime ;
     hpa:HPA_0000041 ex:EX_0000020 ; hpa:HPA_0000042 ex:EX_0000029 .
 
 ex:EX_0000032 a hpa:HPA_0000012 ;
     rdfs:label "Operating pipeline"@en ;
-    obo:IAO_0000115 "The hydrogen pipeline in District D whose operation is documented in the operator log."@en ;
+    skos:definition "The hydrogen pipeline in District D whose operation is documented in the operator log."@en ;
     hpa:HPA_0000044 ex:EX_0000006 .
 
 ex:EX_0000033 a hpa:HPA_0000025 ;
     rdfs:label "Announced pipeline plan"@en ;
-    obo:IAO_0000115 "The plan for the proposed pipeline named in the commissioning announcement."@en .
+    skos:definition "The plan for the proposed pipeline named in the commissioning announcement."@en .
 
 ex:EX_0000034 a hpa:HPA_0000024 ;
     rdfs:label "Pipeline operator log"@en ;
-    obo:IAO_0000115 "The record documenting pipeline operation from 1 January to 1 July 2025, with the end date excluded."@en ;
+    skos:definition "The record documenting pipeline operation from 1 January to 1 July 2025, with the end date excluded."@en ;
     hpa:HPA_0000050 ex:EX_0000032 ;
     hpa:HPA_0000053 "2025-01-01T00:00:00Z"^^xsd:dateTime ;
     hpa:HPA_0000054 "2025-07-01T00:00:00Z"^^xsd:dateTime .
 
 ex:EX_0000035 a hpa:HPA_0000026 ;
     rdfs:label "Pipeline commissioning announcement"@en ;
-    obo:IAO_0000115 "The record stating an intended commissioning date of 10 March 2025 for the proposed pipeline."@en ;
+    skos:definition "The record stating an intended commissioning date of 10 March 2025 for the proposed pipeline."@en ;
     hpa:HPA_0000051 ex:EX_0000033 ;
     hpa:HPA_0000052 "2025-03-10T00:00:00Z"^^xsd:dateTime .
 
 ex:EX_0000036 a hpa:HPA_0000005 ;
     rdfs:label "Offtake agreement signing on 17 March"@en ;
-    obo:IAO_0000115 "The event in which the developer and offtaker sign the hydrogen offtake agreement on 17 March 2025."@en ;
+    skos:definition "The event in which the developer and offtaker sign the hydrogen offtake agreement on 17 March 2025."@en ;
     hpa:HPA_0000035 ex:EX_0000001 ; hpa:HPA_0000036 ex:EX_0000002, ex:EX_0000004 ;
     hpa:HPA_0000037 "2025-03-17T00:00:00Z"^^xsd:dateTime ;
     hpa:HPA_0000038 ex:EX_0000037 .
 
 ex:EX_0000037 a hpa:HPA_0000020 ;
     rdfs:label "Hydrogen offtake agreement"@en ;
-    obo:IAO_0000115 "The agreement specifying delivery at D1 and quantities for January and February 2026."@en ;
+    skos:definition "The agreement specifying delivery at D1 and quantities for January and February 2026."@en ;
     hpa:HPA_0000048 ex:EX_0000014 ;
     hpa:HPA_0000045 ex:EX_0000038, ex:EX_0000039 .
 
 ex:EX_0000038 a hpa:HPA_0000033 ;
     rdfs:label "January 2026 delivery term"@en ;
-    obo:IAO_0000115 "The agreement term specifying delivery of 50,000 kg of hydrogen in January 2026."@en ;
+    skos:definition "The agreement term specifying delivery of 50,000 kg of hydrogen in January 2026."@en ;
     hpa:HPA_0000059 50000.0 ;
     hpa:HPA_0000055 "2026-01-01T00:00:00Z"^^xsd:dateTime ;
     hpa:HPA_0000056 "2026-02-01T00:00:00Z"^^xsd:dateTime .
 
 ex:EX_0000039 a hpa:HPA_0000033 ;
     rdfs:label "February 2026 delivery term"@en ;
-    obo:IAO_0000115 "The agreement term specifying delivery of 55,000 kg of hydrogen in February 2026."@en ;
+    skos:definition "The agreement term specifying delivery of 55,000 kg of hydrogen in February 2026."@en ;
     hpa:HPA_0000059 55000.0 ;
     hpa:HPA_0000055 "2026-02-01T00:00:00Z"^^xsd:dateTime ;
     hpa:HPA_0000056 "2026-03-01T00:00:00Z"^^xsd:dateTime .
 
 ex:EX_0000040 a hpa:HPA_0000006 ;
     rdfs:label "Electricity supply offer issue on 18 March"@en ;
-    obo:IAO_0000115 "The event in which the supplier issues the electricity supply offer on 18 March 2025."@en ;
+    skos:definition "The event in which the supplier issues the electricity supply offer on 18 March 2025."@en ;
     hpa:HPA_0000035 ex:EX_0000001 ; hpa:HPA_0000036 ex:EX_0000005 ;
     hpa:HPA_0000037 "2025-03-18T00:00:00Z"^^xsd:dateTime ;
     hpa:HPA_0000038 ex:EX_0000041 .
 
 ex:EX_0000041 a hpa:HPA_0000021 ;
     rdfs:label "Fixed-price electricity offer"@en ;
-    obo:IAO_0000115 "The supplier’s offer to supply electricity to the project at a fixed price."@en ;
+    skos:definition "The supplier’s offer to supply electricity to the project at a fixed price."@en ;
     hpa:HPA_0000045 ex:EX_0000042 .
 
 ex:EX_0000042 a hpa:HPA_0000034 ;
     rdfs:label "Fixed electricity price"@en ;
-    obo:IAO_0000115 "The pricing term setting a fixed price of EUR 65 per MWh."@en ;
+    skos:definition "The pricing term setting a fixed price of EUR 65 per MWh."@en ;
     hpa:HPA_0000060 "Fixed EUR 65 per MWh" .

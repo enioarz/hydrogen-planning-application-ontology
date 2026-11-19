@@ -46,14 +46,14 @@ Load [ontology.ttl](ontology.ttl) and [examples/planning-decision.ttl](examples/
 
 ## Term identifiers
 
-Application classes and properties use stable IDs in the form `HPA_0000001`. Fictional example individuals use `EX_0000001` IDs. Use `rdfs:label` for the human-readable name and `IAO_0000115` for the textual definition. Allocate a new number for each new entity and keep the ID when a label changes. Version 0.2.0 replaces the draft’s descriptive IDs, including in the example and competency queries.
+Application classes and properties use stable IDs in the form `HPA_0000001`. Fictional example individuals use `EX_0000001` IDs. Use `rdfs:label` for the human-readable name and `skos:definition` for the textual definition. Allocate a new number for each new entity and keep the ID when a label changes. Version 0.2.0 replaces the draft’s descriptive IDs, including in the example and competency queries.
 
 ## Ontology hygiene
 
 Run the checks on the merged imports with `.venv/bin/python validate.py --hygiene-only --robot-jar .ontology-cache/robot.jar`. The full demonstration also runs them. Each SPARQL query returns violations, so an empty result passes.
 
 - [English labels](validation/missing-english-label.rq) require a nonblank English-tagged label. Other languages are allowed alongside it.
-- [Definitions](validation/missing-definition.rq) require a nonblank `IAO_0000115` literal. The label and definition checks cover application terms, example individuals, and the selected OEO terms.
+- [Definitions](validation/missing-definition.rq) require a nonblank `skos:definition` literal. The label and definition checks cover application terms, example individuals, and the selected OEO terms.
 - [Orphan classes](validation/orphan-classes.rq) require every application class to have an asserted `rdfs:subClassOf` path to BFO continuant or occurrent, including paths through CCO. An attachment only to `owl:Thing` or BFO entity fails.
 - [Opaque IDs](validation/term-identifiers.rq) check the format of application and example identifiers.
 
@@ -67,7 +67,7 @@ The validator maps version IRIs to pinned files locally and checks the full impo
 | [CCO v2.2, merged release](https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/0bc7d33e1bc09fd4693366119ab4e03cb0340042/src/cco-merged/CommonCoreOntologiesMerged.ttl) | With prefix `https://www.commoncoreontologies.org/`, `ont00000958` information content entity, `ont00000686` designative information content entity, `ont00000965` directive information content entity, `ont00000853` descriptive information content entity, `ont00000300` agent, `ont00001180` organization, `ont00001916` designates, and `ont00001982` describes |
 | [OEO v2.14.0](https://github.com/OpenEnergyPlatform/ontology/releases/tag/v2.14.0) | With prefix `https://openenergyplatform.org/ontology/oeo/`, `OEO_00010021` water electrolyser, `OEO_00020006` grid component, `OEO_00000296` grid node, `OEO_00000526` is connected to, and `OEO_00390001` megawatt |
 
-HermiT reported inconsistency for the full OEO v2.14.0 release combined with the BFO 2020 ISO ontology, including before application axioms were added. [The local OEO selection](oeo-planning-alignment.ttl) retains the reviewed declarations and the grid relation’s symmetry, domain, and range. The water electrolyser declaration supports the installation class without importing OEO’s additional equipment restrictions. OEO power rating (`OEO_00230001`) is a capacity of an energy converting component with a power unit restriction. It remains a term to consider when equipment evidence is in scope.
+HermiT reported inconsistency for the full OEO v2.14.0 release combined with the BFO 2020 ISO ontology, including before application axioms were added. [The local OEO selection](oeo-planning-alignment.ttl) retains the reviewed declarations and the grid relation’s symmetry, domain, and range. Definitions retain their upstream wording and use `skos:definition` locally. The water electrolyser declaration supports the installation class without importing OEO’s additional equipment restrictions. OEO power rating (`OEO_00230001`) is a capacity of an energy converting component with a power unit restriction. It remains a term to consider when equipment evidence is in scope.
 
 ## Open domain decisions
 

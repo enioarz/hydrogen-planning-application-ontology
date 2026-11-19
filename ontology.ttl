@@ -1,4 +1,5 @@
 @prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix hpa: <https://w3id.org/hydrogen-planning/ontology#> .
 @prefix cco: <https://www.commoncoreontologies.org/> .
 @prefix oeo: <https://openenergyplatform.org/ontology/oeo/> .
@@ -8,321 +9,321 @@
 
 <https://w3id.org/hydrogen-planning/ontology> a owl:Ontology ;
     rdfs:label "Hydrogen project planning application ontology"@en ;
-    obo:IAO_0000115 "An application ontology for recording the evidence, events, and terms involved in hydrogen project planning."@en ;
+    skos:definition "An application ontology for recording the evidence, events, and terms involved in hydrogen project planning."@en ;
     owl:versionInfo "0.2.0" ;
     owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> ,
         <https://www.commoncoreontologies.org/2026-08-13/CommonCoreOntologiesMerged> ,
         <https://w3id.org/hydrogen-planning/oeo-planning-alignment> .
 
-obo:IAO_0000115 a owl:AnnotationProperty .
+skos:definition a owl:AnnotationProperty .
 
 hpa:HPA_0000001 a owl:Class ;
     rdfs:label "Planning project"@en ;
-    obo:IAO_0000115 "A process in which participants prepare and evaluate an investment in hydrogen production infrastructure."@en ;
+    skos:definition "A process in which participants prepare and evaluate an investment in hydrogen production infrastructure."@en ;
     rdfs:subClassOf obo:BFO_0000015 .
 
 hpa:HPA_0000002 a owl:Class ;
     rdfs:label "Planning event"@en ;
-    obo:IAO_0000115 "A process in which an agent creates, exchanges, or uses information relevant to a hydrogen project."@en ;
+    skos:definition "A process in which an agent creates, exchanges, or uses information relevant to a hydrogen project."@en ;
     rdfs:subClassOf obo:BFO_0000015 .
 
 hpa:HPA_0000003 a owl:Class ;
     rdfs:label "Application submission"@en ;
-    obo:IAO_0000115 "A planning event in which a developer submits a project application."@en ;
+    skos:definition "A planning event in which a developer submits a project application."@en ;
     rdfs:subClassOf hpa:HPA_0000002 .
 
 hpa:HPA_0000004 a owl:Class ;
     rdfs:label "Connection offer issue"@en ;
-    obo:IAO_0000115 "A planning event in which a grid operator issues an offer specifying terms for drawing electricity at a grid connection point."@en ;
+    skos:definition "A planning event in which a grid operator issues an offer specifying terms for drawing electricity at a grid connection point."@en ;
     rdfs:subClassOf hpa:HPA_0000002 .
 
 hpa:HPA_0000005 a owl:Class ;
     rdfs:label "Offtake agreement signing"@en ;
-    obo:IAO_0000115 "A planning event in which parties sign an agreement governing the delivery and purchase of hydrogen."@en ;
+    skos:definition "A planning event in which parties sign an agreement governing the delivery and purchase of hydrogen."@en ;
     rdfs:subClassOf hpa:HPA_0000002 .
 
 hpa:HPA_0000006 a owl:Class ;
     rdfs:label "Electricity offer issue"@en ;
-    obo:IAO_0000115 "A planning event in which a supplier issues an offer to supply electricity to a project."@en ;
+    skos:definition "A planning event in which a supplier issues an offer to supply electricity to a project."@en ;
     rdfs:subClassOf hpa:HPA_0000002 .
 
 hpa:HPA_0000007 a owl:Class ;
     rdfs:label "Dataset receipt"@en ;
-    obo:IAO_0000115 "A planning event in which an agent receives a particular version of a dataset."@en ;
+    skos:definition "A planning event in which an agent receives a particular version of a dataset."@en ;
     rdfs:subClassOf hpa:HPA_0000002 .
 
 hpa:HPA_0000008 a owl:Class ;
     rdfs:label "Siting decision"@en ;
-    obo:IAO_0000115 "A planning event in which a developer selects a site and electrical input capacity for an electrolyser investment."@en ;
+    skos:definition "A planning event in which a developer selects a site and electrical input capacity for an electrolyser investment."@en ;
     rdfs:subClassOf hpa:HPA_0000002 .
 
 hpa:HPA_0000009 a owl:Class ;
     rdfs:label "Citation"@en ;
-    obo:IAO_0000115 "A planning event in which an agent identifies a record as evidence for a decision."@en ;
+    skos:definition "A planning event in which an agent identifies a record as evidence for a decision."@en ;
     rdfs:subClassOf hpa:HPA_0000002 .
 
 hpa:HPA_0000010 a owl:Class ;
     rdfs:label "Candidate project site"@en ;
-    obo:IAO_0000115 "A site considered as a possible location for an electrolyser in a hydrogen project."@en ;
+    skos:definition "A site considered as a possible location for an electrolyser in a hydrogen project."@en ;
     rdfs:subClassOf obo:BFO_0000029 .
 
 hpa:HPA_0000011 a owl:Class ;
     rdfs:label "District"@en ;
-    obo:IAO_0000115 "A geographic area identified as a unit for reporting or screening infrastructure."@en ;
+    skos:definition "A geographic area identified as a unit for reporting or screening infrastructure."@en ;
     rdfs:subClassOf obo:BFO_0000029 .
 
 hpa:HPA_0000012 a owl:Class ;
     rdfs:label "Hydrogen pipeline"@en ;
-    obo:IAO_0000115 "A material entity consisting of a pipe or connected pipes intended to transport hydrogen."@en ;
+    skos:definition "A material entity consisting of a pipe or connected pipes intended to transport hydrogen."@en ;
     rdfs:subClassOf obo:BFO_0000040 .
 
 hpa:HPA_0000013 a owl:Class ;
     rdfs:label "Grid connection point"@en ;
-    obo:IAO_0000115 "A physical point in a grid at which an electrical connection is offered or made."@en ;
+    skos:definition "A physical point in a grid at which an electrical connection is offered or made."@en ;
     rdfs:subClassOf obo:BFO_0000040 ;
     rdfs:comment "A physical point at which a connection is offered or made. Its identification in an offer does not assert a connection."@en .
 
 hpa:HPA_0000014 a owl:Class ;
     rdfs:label "Installed electrolyser"@en ;
-    obo:IAO_0000115 "A water electrolyser that has been placed and fitted as equipment at a project site."@en ;
+    skos:definition "A water electrolyser that has been placed and fitted as equipment at a project site."@en ;
     rdfs:subClassOf obo:BFO_0000040, oeo:OEO_00010021 .
 
 hpa:HPA_0000015 a owl:Class ;
     rdfs:label "Hydrogen delivery point"@en ;
-    obo:IAO_0000115 "A physical point designated for the transfer of hydrogen from a supplier to an offtaker."@en ;
+    skos:definition "A physical point designated for the transfer of hydrogen from a supplier to an offtaker."@en ;
     rdfs:subClassOf obo:BFO_0000040 .
 
 # A record can carry multiple kinds of information content.
 hpa:HPA_0000016 a owl:Class ;
     rdfs:label "Planning record"@en ;
-    obo:IAO_0000115 "An information content entity that records information used or produced in planning a hydrogen project."@en ;
+    skos:definition "An information content entity that records information used or produced in planning a hydrogen project."@en ;
     rdfs:subClassOf cco:ont00000958 .
 
 hpa:HPA_0000017 a owl:Class ;
     rdfs:label "Infrastructure record"@en ;
-    obo:IAO_0000115 "A planning record containing information about physical infrastructure, infrastructure plans, or access to infrastructure."@en ;
+    skos:definition "A planning record containing information about physical infrastructure, infrastructure plans, or access to infrastructure."@en ;
     rdfs:subClassOf hpa:HPA_0000016 .
 
 hpa:HPA_0000018 a owl:Class ;
     rdfs:label "Project application"@en ;
-    obo:IAO_0000115 "A planning record submitted by a developer that identifies proposed project sites and their requested electrical input capacities."@en ;
+    skos:definition "A planning record submitted by a developer that identifies proposed project sites and their requested electrical input capacities."@en ;
     rdfs:subClassOf hpa:HPA_0000016 .
 
 hpa:HPA_0000019 a owl:Class ;
     rdfs:label "Connection offer"@en ;
-    obo:IAO_0000115 "An infrastructure record issued by a grid operator that specifies terms for withdrawing electricity at a named grid connection point."@en ;
+    skos:definition "An infrastructure record issued by a grid operator that specifies terms for withdrawing electricity at a named grid connection point."@en ;
     rdfs:subClassOf hpa:HPA_0000017 .
 
 hpa:HPA_0000020 a owl:Class ;
     rdfs:label "Offtake agreement"@en ;
-    obo:IAO_0000115 "A planning record that captures agreed terms for the delivery and purchase of hydrogen."@en ;
+    skos:definition "A planning record that captures agreed terms for the delivery and purchase of hydrogen."@en ;
     rdfs:subClassOf hpa:HPA_0000016 .
 
 hpa:HPA_0000021 a owl:Class ;
     rdfs:label "Electricity supply offer"@en ;
-    obo:IAO_0000115 "A planning record issued by an electricity supplier that proposes terms for supplying electricity to a project."@en ;
+    skos:definition "A planning record issued by an electricity supplier that proposes terms for supplying electricity to a project."@en ;
     rdfs:subClassOf hpa:HPA_0000016 .
 
 hpa:HPA_0000022 a owl:Class ;
     rdfs:label "Decision record"@en ;
-    obo:IAO_0000115 "A planning record that captures the electrolyser site and electrical input capacity selected by a developer."@en ;
+    skos:definition "A planning record that captures the electrolyser site and electrical input capacity selected by a developer."@en ;
     rdfs:subClassOf hpa:HPA_0000016 .
 
 hpa:HPA_0000023 a owl:Class ;
     rdfs:label "Infrastructure dataset version"@en ;
-    obo:IAO_0000115 "An infrastructure record that contains a particular release of data describing infrastructure."@en ;
+    skos:definition "An infrastructure record that contains a particular release of data describing infrastructure."@en ;
     rdfs:subClassOf hpa:HPA_0000017, cco:ont00000853 .
 
 hpa:HPA_0000024 a owl:Class ;
     rdfs:label "Pipeline operating record"@en ;
-    obo:IAO_0000115 "An infrastructure record that describes a documented interval of operation for an identified hydrogen pipeline."@en ;
+    skos:definition "An infrastructure record that describes a documented interval of operation for an identified hydrogen pipeline."@en ;
     rdfs:subClassOf hpa:HPA_0000017, cco:ont00000853 .
 
 hpa:HPA_0000025 a owl:Class ;
     rdfs:label "Pipeline plan"@en ;
-    obo:IAO_0000115 "A directive information content entity that specifies a proposed hydrogen pipeline."@en ;
+    skos:definition "A directive information content entity that specifies a proposed hydrogen pipeline."@en ;
     rdfs:subClassOf cco:ont00000965 .
 
 hpa:HPA_0000026 a owl:Class ;
     rdfs:label "Commissioning announcement"@en ;
-    obo:IAO_0000115 "An infrastructure record that publicly states an intended commissioning date for a proposed hydrogen pipeline."@en ;
+    skos:definition "An infrastructure record that publicly states an intended commissioning date for a proposed hydrogen pipeline."@en ;
     rdfs:subClassOf hpa:HPA_0000017, cco:ont00000965 .
 
 hpa:HPA_0000027 a owl:Class ;
     rdfs:label "Site identifier"@en ;
-    obo:IAO_0000115 "A designative information content entity that uniquely identifies a candidate project site in context."@en ;
+    skos:definition "A designative information content entity that uniquely identifies a candidate project site in context."@en ;
     rdfs:subClassOf cco:ont00000686 .
 
 hpa:HPA_0000028 a owl:Class ;
     rdfs:label "Connection point identifier"@en ;
-    obo:IAO_0000115 "A designative information content entity that uniquely identifies a grid connection point in context."@en ;
+    skos:definition "A designative information content entity that uniquely identifies a grid connection point in context."@en ;
     rdfs:subClassOf cco:ont00000686 .
 
 hpa:HPA_0000029 a owl:Class ;
     rdfs:label "Delivery point identifier"@en ;
-    obo:IAO_0000115 "A designative information content entity that uniquely identifies a hydrogen delivery point in context."@en ;
+    skos:definition "A designative information content entity that uniquely identifies a hydrogen delivery point in context."@en ;
     rdfs:subClassOf cco:ont00000686 .
 
 hpa:HPA_0000030 a owl:Class ;
     rdfs:label "Requested electrical input"@en ;
-    obo:IAO_0000115 "A directive information content entity that specifies the electrical input capacity requested for an electrolyser at a candidate site."@en ;
+    skos:definition "A directive information content entity that specifies the electrical input capacity requested for an electrolyser at a candidate site."@en ;
     rdfs:subClassOf cco:ont00000965 .
 
 hpa:HPA_0000031 a owl:Class ;
     rdfs:label "Electricity withdrawal limit"@en ;
-    obo:IAO_0000115 "A directive information content entity that specifies the maximum electrical input permitted at a connection point under the terms of an offer."@en ;
+    skos:definition "A directive information content entity that specifies the maximum electrical input permitted at a connection point under the terms of an offer."@en ;
     rdfs:subClassOf cco:ont00000965 .
 
 hpa:HPA_0000032 a owl:Class ;
     rdfs:label "Selected electrical input"@en ;
-    obo:IAO_0000115 "A directive information content entity that specifies the electrolyser site and electrical input capacity selected for investment."@en ;
+    skos:definition "A directive information content entity that specifies the electrolyser site and electrical input capacity selected for investment."@en ;
     rdfs:subClassOf cco:ont00000965 .
 
 hpa:HPA_0000033 a owl:Class ;
     rdfs:label "Hydrogen delivery term"@en ;
-    obo:IAO_0000115 "A directive information content entity that specifies the quantity of hydrogen to be delivered during a particular period."@en ;
+    skos:definition "A directive information content entity that specifies the quantity of hydrogen to be delivered during a particular period."@en ;
     rdfs:subClassOf cco:ont00000965 .
 
 hpa:HPA_0000034 a owl:Class ;
     rdfs:label "Electricity pricing term"@en ;
-    obo:IAO_0000115 "A directive information content entity that specifies an electricity price or a rule for determining it."@en ;
+    skos:definition "A directive information content entity that specifies an electricity price or a rule for determining it."@en ;
     rdfs:subClassOf cco:ont00000965 .
 
 hpa:HPA_0000035 a owl:ObjectProperty ;
     rdfs:label "for project"@en ;
-    obo:IAO_0000115 "Relates an entity to the planning project to which it pertains."@en ;
+    skos:definition "Relates an entity to the planning project to which it pertains."@en ;
     rdfs:range hpa:HPA_0000001 .
 
 hpa:HPA_0000036 a owl:ObjectProperty ;
     rdfs:label "has actor"@en ;
-    obo:IAO_0000115 "Relates a planning event to an agent who acts in that event."@en ;
+    skos:definition "Relates a planning event to an agent who acts in that event."@en ;
     rdfs:domain hpa:HPA_0000002 ;
     rdfs:subPropertyOf obo:BFO_0000057 ;
     rdfs:range cco:ont00000300 .
 
 hpa:HPA_0000037 a owl:DatatypeProperty ;
     rdfs:label "event date and time"@en ;
-    obo:IAO_0000115 "Relates a planning event to the date and time at which it occurred."@en ;
+    skos:definition "Relates a planning event to the date and time at which it occurred."@en ;
     rdfs:domain hpa:HPA_0000002 ;
     rdfs:range xsd:dateTime ;
     rdfs:comment "Time of the event, such as issue, receipt, or decision."@en .
 
 hpa:HPA_0000038 a owl:ObjectProperty ;
     rdfs:label "has output record"@en ;
-    obo:IAO_0000115 "Relates a planning event to a planning record created, submitted, signed, or issued in that event."@en ;
+    skos:definition "Relates a planning event to a planning record created, submitted, signed, or issued in that event."@en ;
     rdfs:domain hpa:HPA_0000002 ; rdfs:range hpa:HPA_0000016 .
 
 hpa:HPA_0000039 a owl:ObjectProperty ;
     rdfs:label "has received version"@en ;
-    obo:IAO_0000115 "Relates a dataset receipt event to the dataset version received in that event."@en ;
+    skos:definition "Relates a dataset receipt event to the dataset version received in that event."@en ;
     rdfs:domain hpa:HPA_0000007 ; rdfs:range hpa:HPA_0000023 .
 
 hpa:HPA_0000040 a owl:ObjectProperty ;
     rdfs:label "is part of decision"@en ;
-    obo:IAO_0000115 "Relates a citation to the siting decision in which the citation was made."@en ;
+    skos:definition "Relates a citation to the siting decision in which the citation was made."@en ;
     rdfs:domain hpa:HPA_0000009 ; rdfs:range hpa:HPA_0000008 .
 
 hpa:HPA_0000041 a owl:ObjectProperty ;
     rdfs:label "has cited record"@en ;
-    obo:IAO_0000115 "Relates a citation to the planning record it identifies."@en ;
+    skos:definition "Relates a citation to the planning record it identifies."@en ;
     rdfs:domain hpa:HPA_0000009 ; rdfs:range hpa:HPA_0000016 .
 
 hpa:HPA_0000042 a owl:ObjectProperty ;
     rdfs:label "is evidenced by"@en ;
-    obo:IAO_0000115 "Relates an entity to a planning record that provides evidence for its existence or occurrence."@en ;
+    skos:definition "Relates an entity to a planning record that provides evidence for its existence or occurrence."@en ;
     rdfs:range hpa:HPA_0000016 .
 
 hpa:HPA_0000043 a owl:ObjectProperty ;
     rdfs:label "has project area"@en ;
-    obo:IAO_0000115 "Relates a planning project to a district within the geographic scope of its planning."@en ;
+    skos:definition "Relates a planning project to a district within the geographic scope of its planning."@en ;
     rdfs:domain hpa:HPA_0000001 ; rdfs:range hpa:HPA_0000011 .
 
 hpa:HPA_0000044 a owl:ObjectProperty ;
     rdfs:label "has pipeline area"@en ;
-    obo:IAO_0000115 "Relates a hydrogen pipeline to a district through which it runs."@en ;
+    skos:definition "Relates a hydrogen pipeline to a district through which it runs."@en ;
     rdfs:domain hpa:HPA_0000012 ; rdfs:range hpa:HPA_0000011 .
 
 hpa:HPA_0000045 a owl:ObjectProperty ;
     rdfs:label "has information content"@en ;
-    obo:IAO_0000115 "Relates a planning record to an information content entity included in that record."@en ;
+    skos:definition "Relates a planning record to an information content entity included in that record."@en ;
     rdfs:domain hpa:HPA_0000016 ; rdfs:range cco:ont00000958 .
 
 hpa:HPA_0000046 a owl:ObjectProperty ;
     rdfs:label "has site identifier"@en ;
-    obo:IAO_0000115 "Relates project planning information to an identifier that designates the site named in that information."@en ;
+    skos:definition "Relates project planning information to an identifier that designates the site named in that information."@en ;
     rdfs:range hpa:HPA_0000027 .
 
 hpa:HPA_0000047 a owl:ObjectProperty ;
     rdfs:label "has connection point identifier"@en ;
-    obo:IAO_0000115 "Relates project planning information to an identifier that designates the grid connection point named in that information."@en ;
+    skos:definition "Relates project planning information to an identifier that designates the grid connection point named in that information."@en ;
     rdfs:range hpa:HPA_0000028 .
 
 hpa:HPA_0000048 a owl:ObjectProperty ;
     rdfs:label "has delivery point identifier"@en ;
-    obo:IAO_0000115 "Relates project planning information to an identifier that designates the hydrogen delivery point named in that information."@en ;
+    skos:definition "Relates project planning information to an identifier that designates the hydrogen delivery point named in that information."@en ;
     rdfs:range hpa:HPA_0000029 .
 
 hpa:HPA_0000049 a owl:ObjectProperty ;
     rdfs:label "reports connection capacity for"@en ;
-    obo:IAO_0000115 "Relates an infrastructure dataset version to a district for which it reports electricity connection capacity."@en ;
+    skos:definition "Relates an infrastructure dataset version to a district for which it reports electricity connection capacity."@en ;
     rdfs:domain hpa:HPA_0000023 ; rdfs:range hpa:HPA_0000011 ;
     rdfs:subPropertyOf cco:ont00001982 .
 
 hpa:HPA_0000050 a owl:ObjectProperty ;
     rdfs:label "describes pipeline"@en ;
-    obo:IAO_0000115 "Relates a pipeline operating record to the hydrogen pipeline whose operation it documents."@en ;
+    skos:definition "Relates a pipeline operating record to the hydrogen pipeline whose operation it documents."@en ;
     rdfs:domain hpa:HPA_0000024 ; rdfs:range hpa:HPA_0000012 ;
     rdfs:subPropertyOf cco:ont00001982 .
 
 hpa:HPA_0000051 a owl:ObjectProperty ;
     rdfs:label "announces commissioning of"@en ;
-    obo:IAO_0000115 "Relates a commissioning announcement to the pipeline plan whose intended commissioning it announces."@en ;
+    skos:definition "Relates a commissioning announcement to the pipeline plan whose intended commissioning it announces."@en ;
     rdfs:domain hpa:HPA_0000026 ; rdfs:range hpa:HPA_0000025 .
 
 hpa:HPA_0000052 a owl:DatatypeProperty ;
     rdfs:label "announced commissioning date and time"@en ;
-    obo:IAO_0000115 "Relates a commissioning announcement to the intended commissioning date and time it states."@en ;
+    skos:definition "Relates a commissioning announcement to the intended commissioning date and time it states."@en ;
     rdfs:domain hpa:HPA_0000026 ; rdfs:range xsd:dateTime .
 
 hpa:HPA_0000053 a owl:DatatypeProperty ;
     rdfs:label "documented operation start"@en ;
-    obo:IAO_0000115 "Relates a pipeline operating record to the inclusive start of the interval of operation it documents."@en ;
+    skos:definition "Relates a pipeline operating record to the inclusive start of the interval of operation it documents."@en ;
     rdfs:domain hpa:HPA_0000024 ; rdfs:range xsd:dateTime .
 
 hpa:HPA_0000054 a owl:DatatypeProperty ;
     rdfs:label "documented operation end"@en ;
-    obo:IAO_0000115 "Relates a pipeline operating record to the exclusive end of the interval of operation it documents."@en ;
+    skos:definition "Relates a pipeline operating record to the exclusive end of the interval of operation it documents."@en ;
     rdfs:domain hpa:HPA_0000024 ; rdfs:range xsd:dateTime ;
     rdfs:comment "Exclusive end of the documented operating interval."@en .
 
 hpa:HPA_0000055 a owl:DatatypeProperty ;
     rdfs:label "delivery period start"@en ;
-    obo:IAO_0000115 "Relates a hydrogen delivery term to the inclusive start of the period to which that term applies."@en ;
+    skos:definition "Relates a hydrogen delivery term to the inclusive start of the period to which that term applies."@en ;
     rdfs:domain hpa:HPA_0000033 ; rdfs:range xsd:dateTime .
 
 hpa:HPA_0000056 a owl:DatatypeProperty ;
     rdfs:label "delivery period end"@en ;
-    obo:IAO_0000115 "Relates a hydrogen delivery term to the exclusive end of the period to which that term applies."@en ;
+    skos:definition "Relates a hydrogen delivery term to the exclusive end of the period to which that term applies."@en ;
     rdfs:domain hpa:HPA_0000033 ; rdfs:range xsd:dateTime ;
     rdfs:comment "Exclusive end of the delivery period."@en .
 
 # These predicates carry units explicitly and describe terms in records.
 hpa:HPA_0000057 a owl:AnnotationProperty ;
     rdfs:label "has unit of measure"@en ;
-    obo:IAO_0000115 "Identifies the unit of measure used to interpret numeric literals for the annotated property."@en .
+    skos:definition "Identifies the unit of measure used to interpret numeric literals for the annotated property."@en .
 
 hpa:HPA_0000058 a owl:DatatypeProperty ;
     rdfs:label "electrical power in megawatts"@en ;
-    obo:IAO_0000115 "Relates a planning term to the electrical power value it specifies, expressed in megawatts."@en ;
+    skos:definition "Relates a planning term to the electrical power value it specifies, expressed in megawatts."@en ;
     rdfs:range xsd:decimal ;
     hpa:HPA_0000057 oeo:OEO_00390001 .
 
 hpa:HPA_0000059 a owl:DatatypeProperty ;
     rdfs:label "hydrogen mass in kilograms"@en ;
-    obo:IAO_0000115 "Relates a hydrogen delivery term to the mass of hydrogen it specifies, expressed in kilograms."@en ;
+    skos:definition "Relates a hydrogen delivery term to the mass of hydrogen it specifies, expressed in kilograms."@en ;
     rdfs:domain hpa:HPA_0000033 ; rdfs:range xsd:decimal .
 
 hpa:HPA_0000060 a owl:DatatypeProperty ;
     rdfs:label "has pricing rule"@en ;
-    obo:IAO_0000115 "Relates an electricity pricing term to the text that states the price or gives a rule for determining it."@en ;
+    skos:definition "Relates an electricity pricing term to the text that states the price or gives a rule for determining it."@en ;
     rdfs:domain hpa:HPA_0000034 ; rdfs:range xsd:string .

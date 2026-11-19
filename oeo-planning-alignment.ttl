@@ -1,4 +1,4 @@
-@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix oeo: <https://openenergyplatform.org/ontology/oeo/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -6,21 +6,21 @@
 
 <https://w3id.org/hydrogen-planning/oeo-planning-alignment> a owl:Ontology ;
     rdfs:label "Selected Open Energy Ontology axioms for hydrogen planning"@en ;
-    obo:IAO_0000115 "A set of axioms and annotations selected from the Open Energy Ontology for use in the hydrogen planning application ontology."@en ;
+    skos:definition "A set of axioms and annotations selected from the Open Energy Ontology for use in the hydrogen planning application ontology."@en ;
     dcterms:source <https://openenergyplatform.org/ontology/oeo/releases/2.14.0/oeo.owl> .
 
 oeo:OEO_00010021 a owl:Class ; rdfs:label "water electrolyser"@en ;
-    obo:IAO_0000115 "A water electrolyser is an energy converting component that uses an electric current to decompose water into hydrogen and oxygen gas. Electrical energy is converted into chemical energy (and waste heat)."@en .
+    skos:definition "A water electrolyser is an energy converting component that uses an electric current to decompose water into hydrogen and oxygen gas. Electrical energy is converted into chemical energy (and waste heat)."@en .
 oeo:OEO_00020006 a owl:Class ; rdfs:label "grid component"@en ;
-    obo:IAO_0000115 "A grid component is an energy transformation unit that is a discrete part of a supply grid serving a specific purpose. A grid component is defined by having a grid component role."@en .
+    skos:definition "A grid component is an energy transformation unit that is a discrete part of a supply grid serving a specific purpose. A grid component is defined by having a grid component role."@en .
 oeo:OEO_00000296 a owl:Class ;
     rdfs:label "grid node"@en ;
-    obo:IAO_0000115 "A grid node is a grid component of a supply grid where two or more links meet."@en ;
+    skos:definition "A grid node is a grid component of a supply grid where two or more links meet."@en ;
     rdfs:subClassOf oeo:OEO_00020006 .
 oeo:OEO_00000526 a owl:ObjectProperty, owl:SymmetricProperty ;
     rdfs:label "is connected to"@en ;
-    obo:IAO_0000115 "A relation that holds between two neighbouring grid nodes in a supply grid." ;
+    skos:definition "A relation that holds between two neighbouring grid nodes in a supply grid." ;
     rdfs:domain oeo:OEO_00000296 ;
     rdfs:range oeo:OEO_00000296 .
 oeo:OEO_00390001 a owl:Class ; rdfs:label "megawatt"@en ;
-    obo:IAO_0000115 "A power unit which is equal to one million watts." .
+    skos:definition "A power unit which is equal to one million watts." .

@@ -10,12 +10,13 @@ import tempfile
 from urllib.request import urlopen
 from xml.etree import ElementTree
 
-from rdflib import Graph, Literal, Namespace, OWL, URIRef, XSD
+from rdflib import Graph, Literal, Namespace, OWL, SKOS, URIRef, XSD
 
 ROOT = Path(__file__).resolve().parent
 EX = Namespace("https://w3id.org/hydrogen-planning/example/")
 HPA = Namespace("https://w3id.org/hydrogen-planning/ontology#")
 OEO = Namespace("https://openenergyplatform.org/ontology/oeo/")
+OEO_SOURCE_DEFINITION = URIRef("http://purl.obolibrary.org/obo/IAO_0000115")
 ONTOLOGY = URIRef("https://w3id.org/hydrogen-planning/ontology")
 ALIGNMENT = URIRef("https://w3id.org/hydrogen-planning/oeo-planning-alignment")
 SOURCES = {
@@ -91,9 +92,16 @@ def validate_owl(graph, robot, *, hygiene_only):
     alignment_path = ROOT / "oeo-planning-alignment.ttl"
     alignment = Graph().parse(alignment_path)
     release, _ = load_release("oeo")
-    for triple in alignment:
-        if str(triple[0]).startswith(str(OEO)) and triple not in release:
-            raise ValueError(f"OEO alignment triple missing from the pinned release: {triple!r}")
+    for subject, predicate, value in alignment:
+        if not str(subject).startswith(str(OEO)):
+            continue
+        triple = (subject, predicate, value)
+        if triple in release:
+            continue
+        # OEO definitions retain their source literals under the local SKOS predicate.
+        if predicate == SKOS.definition and (subject, OEO_SOURCE_DEFINITION, value) in release:
+            continue
+        raise ValueError(f"OEO alignment triple missing from the pinned release: {triple!r}")
 
     bfo, bfo_cache = load_release("bfo")
     cco, cco_cache = load_release("cco")

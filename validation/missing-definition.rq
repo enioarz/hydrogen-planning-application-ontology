@@ -1,4 +1,4 @@
-PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT DISTINCT ?entity
 WHERE {
@@ -11,7 +11,7 @@ WHERE {
     STRSTARTS(?iri, "https://openenergyplatform.org/ontology/oeo/OEO_")
   )
   FILTER NOT EXISTS {
-    ?entity obo:IAO_0000115 ?definition .
+    ?entity skos:definition ?definition .
     FILTER (isLiteral(?definition) && REGEX(STR(?definition), "\\S"))
   }
 }
